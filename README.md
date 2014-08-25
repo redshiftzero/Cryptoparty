@@ -1,4 +1,4 @@
 Cryptoparty
 ===========
 
-Slides/handouts for organizing cryptoparties
+Handouts/talks/etc. for organizing Cryptoparty Chicago
