@@ -1,0 +1,354 @@
+% Cryptopartay.tex
+\documentclass{beamer}
+\usetheme{Singapore}
+\setbeamertemplate{navigation symbols}{}
+% \usetheme{default}
+%\usepackage[dvipdfm]{graphicx} 
+\usepackage{graphicx}
+%\usepackage{appendixnumberbeamer}
+%\usepackage{bmpsize}
+
+\author[redshiftzero]{redshiftzero\\ \texttt{jen@redshiftzero.com}}
+\institute[SSH:C]{Southside Hackerspace: Chicago} 
+\title[Cryptoparty]{Cryptoparty}
+
+\date[August 2014]{August 30, 2014}
+
+\begin{document}
+
+% The title page
+\begin{frame}[plain]
+   \titlepage
+\end{frame}
+
+% Begin this presentation
+
+\section{Bookkeeping}
+\subsection{What we do}
+
+\begin{frame}{What are we going to do today?}
+\setbeamercovered{transparent}
+
+\begin{itemize}
+  \item Introductions
+  \item Context 
+  \item Basic cryptography/security concepts
+  \item Setting up tools: Tor Browser Bundle
+  \item Open time: Q and A, lightning talks, keysigning 
+  \item Already use Tor? Please help teach!
+\end{itemize}
+
+\end{frame}
+
+\section{Motivation}
+\subsection{}
+
+\begin{frame}{Why should we care about privacy?}
+
+\setbeamercovered{transparent}
+
+\begin{itemize}
+   \item<1>{Some people have something to hide, but not something the government should have the power to know: e.g. affairs, being in the closet, medical information.}
+   \item<2>{You may not have anything to hide, but the government may think you do: e.g. bloated terrorist watch lists that are hard to remove oneself from.}
+   \item<3>{Are you sure you have nothing to hide? There are lots of laws.}
+   \item<4>{People hide many things even though they're not wrong. e.g. nudity.}
+   \item<5>{You may not care about hiding it, but you may still be discriminated against because of it. e.g. a company decides that statistically a behavior might suggest you are a poor risk}
+   \item<6>{Privacy is important for dissidents and democracy. It helps maintain the balance of power between individuals and the state.}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Lessons from Snowden}
+\subsection{}
+
+\begin{itemize}
+   \item{The NSA is grabbing up lots of data. Their motivation is to collect every communication that exists, everywhere. }
+   \item{``Properly implemented strong cryptosystems are one of the few things we can rely on"}
+   \item{But endpoint security is an issue.}
+   \item{If the government and corporations don't care about protecting our privacy, we can do it for ourselves.}  
+\end{itemize}
+\end{frame}
+
+\section{Basic security}
+\subsection{}
+
+\begin{frame}{Security Mindset}
+
+\setbeamercovered{transparent}
+
+There's no such thing as absolute security. Consider your home. 
+
+\bigskip
+
+You're balancing risk and security. You want to exert just more effort than your adversary is willing to commit.
+
+\bigskip
+
+Consider your threat model:
+\begin{itemize}
+\item What do you want to keep private? e.g. your .porn directory, your stolen government documents, the fact that you have cancer, your sexuality
+\item Who wants to know? e.g. Your employer? Nosy kids in coffee shops? Criminals? Police? FBI? NSA?
+\item What can they do to find out? e.g. Dragnet surveillance vs. targeted surveillance 
+\item What happens if they succeed? e.g. embarassment to death, imprisonment
+\end{itemize}
+
+\bigskip
+
+Then you make a security plan.
+\bigskip
+
+\end{frame}
+
+\begin{frame}{How can we communicate securely in the presence of third parties? Cryptography!}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.40]{cryptoparty_figures/Plaintext.pdf}
+\end{figure}
+
+\end{frame}
+\begin{frame}{How can we communicate securely in the presence of third parties? Cryptography!}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.40]{cryptoparty_figures/Ciphertext.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{General Computer Security Advice}
+
+\setbeamercovered{transparent}
+
+\begin{itemize}
+   \item<1> Keep your system (both your OS and applications) up to date with security updates.
+   \item<2> Don't run code from people or organizations you don't trust: Email attachments!
+   \item<3> Free and open source software is better for security: Linux!
+   \item<4> Don't reuse passwords if possible, use long passwords, and use two-factor authentication if available. Use a password manager if that helps (e.g. Keepass).
+   \item<5> Use HTTPS as much as possible: Install \textbf{HTTPS Everywhere}, a browser extension.
+\end{itemize}
+\end{frame}
+
+\section{Anonymity Systems}
+\subsection{}
+
+\begin{frame}{Anonymity Systems}
+Anonymity means you can't tell who did what. \textbf{This isn't just crypto.}
+\bigskip
+
+One solution: Use a VPN (Virtual Private Network). 
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{cryptoparty_figures/VPN.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Anonymity Systems}
+Issues arise if the VPN provider cooperates with the adversary or is compromised.\bigskip
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{cryptoparty_figures/EvilVPN.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Anonymity Systems}
+
+Even if the VPN provider does not cooperate, an adversary watching all the inputs and outputs to this single server could potentially deanonymize users. \bigskip
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{cryptoparty_figures/VPNTrafficAnalysis.pdf}
+\end{figure}
+
+\end{frame}
+
+\section{Tor}
+\subsection{}
+
+\begin{frame}{So what to do?}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/Tor1.pdf}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{So what to do?}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/Tor2.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{So what to do?}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/Tortunnel.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{So what to do?}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/TorEvil1.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{So what to do?}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/TorEvil2.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{So what to do?}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/TorEvilExit.pdf}
+\end{figure}
+
+\end{frame}
+
+\subsection{}
+\begin{frame}{Tor}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.20]{cryptoparty_figures/EncryptTor.pdf}
+\end{figure}
+
+Relays data through $\sim$6000 volunteer relays. Encrypted connections between the client and Tor relays.
+
+Slower than a VPN, but provides more anonymity (but VPNs can still be useful). \bigskip
+
+The Tor Project is a 501c3 non-profit dedicated to the development of anonymity tools. They write the Tor Browser Bundle, which is software that enables one to use the Tor network.
+
+\end{frame}
+
+\begin{frame}{Tor}
+Low latency: Tor doesn't put in delays between relays (not intentionally at least). Makes it usable, but potentially vulnerable to end-to-end correlation attacks (traffic analysis).
+
+\bigskip
+
+While these traffic analysis attacks are possible, the NSA's own documents reveal they have a very difficult time de-anonymizing Tor users: \begin{quote} We will never be able to de-anonymize all Tor users all the time\ldots with manual analysis we can de-anonymize a very small fraction of Tor users\ldots no success de-anonmizing a user on demand\end{quote}\footnote{Full details here: theguardian.com/world/interactive/2013/oct/04/tor-stinks-nsa-presentation-document}
+
+\bigskip
+
+\end{frame}
+
+\begin{frame}{Tor: Usability Issues 1}
+\setbeamercovered{transparent}
+
+\begin{itemize}
+   \item<1> Keep Tor Browser Bundle (like all software) updated. TBB will load check.torproject.org and verify you are using the latest version. PAY ATTENTION TO THIS.
+   \item<2> The exit nodes see your unencrypted traffic unless you are using end-to-end encryption. TBB includes HTTPS everywhere. 
+   \item<3> Flash is disabled for privacy reasons. Use HTML5 video.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tor: Usability Issues 2}
+\setbeamercovered{transparent}
+
+\begin{itemize}
+   \item<1> Be careful opening documents downloaded through Tor. Do it offline or while using Tails. TBB will warn you about this. 
+   \item<2> Don't torrent: You might be deanonymizing yourself in the torrent tracker and you are slowing down the network/causing abuse violations for exit node operators.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Evading censorship}
+\setbeamercovered{transparent}
+If you suspect your use of Tor is being monitored or blocked:
+
+\begin{itemize}
+   \item<1> Use a bridge: A relay not listed in the main Tor directory.  
+   \item<2> Use pluggable transports to evade Deep Packet Inspection. To use pluggable transports, you should hit ``Yes'' when Tor asks you ``Does your ISP block or otherwise censor connections to the Tor Network?''. This will by default use a protocol called obfs3, which is right now the most developed anti-DPI measure.   
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Hidden Services}
+Can also use Tor to anonymize a server (as well as just the client). 
+\bigskip
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/HiddenWiki.pdf}
+\end{figure}
+
+[16 characters derived from the hidden service's public key].onion
+\bigskip
+
+You only can access these *.onion sites if you through Tor
+
+\end{frame}
+
+\begin{frame}{Tor: Download}
+Download:
+\begin{itemize}
+   \item Download Tor Browser Bundle: https://www.torproject.org/download/download-easy.html.en
+   \item For Android: Orfox
+\end{itemize}
+
+Tails: a live Linux distro that transparently routes your traffic through Tor: https://tails.boum.org
+\begin{itemize} 
+   \item{Based on Debian Stable}
+   \item{Live DVD or Live USB}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Securely downloading and installing TBB}
+ \setbeamerfont {title}{size=\verysmall}
+\begin{itemize} 
+\item Step 0: GPG (GnuPG) download:
+\begin{itemize}
+\item Download GPG (Mac: GPGtools.org, Linux: it's installed, Windows: gpg4win.org)
+\item Verify the SHA1 sum matches: (Mac: \texttt{openssl sha1 filename}, Linux: \texttt{sha1sum filename}, Windows: ``Microsoft File Checksum Integrity Verifier")
+\end{itemize}
+\item Step 1: Download Erinn Clark's PGP key (she signs TBB)
+\begin{itemize}
+\item \texttt{gpg --keyserver x-hkp://keys.gnupg.net --recv-keys 0x63FEE659}
+\end{itemize}
+
+\item Step 2: Verify the fingerprint
+\begin{itemize}
+\item \texttt{gpg --fingerprint 0x63FEE659}
+\item Should be: 8738 A680 B84B 3031 A630 F2DB 416F 0610 63FE E659
+\end{itemize}
+
+\item Step 3: Download and check the TorBrowserBundle
+\begin{itemize}
+\item Download TBB (*.zip file) and the signature (*.asc file) from torproject.org
+\item \texttt{gpg --verify Tor-*.asc Tor*.zip}
+\end{itemize}
+
+\item Step 4: Now you can unzip TorBrowserBundle*.zip and install!
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Example}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{cryptoparty_figures/macosx.pdf}
+\end{figure}
+\end{frame}
+
+%%% BREAK. End Tor
+
+\end{document}
