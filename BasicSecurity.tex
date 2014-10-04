@@ -1,0 +1,129 @@
+% Cryptopartay.tex
+\documentclass{beamer}
+\usetheme{Singapore}
+\setbeamertemplate{navigation symbols}{}
+% \usetheme{default}
+%\usepackage[dvipdfm]{graphicx} 
+\usepackage{graphicx}
+%\usepackage{appendixnumberbeamer}
+%\usepackage{bmpsize}
+\geometry{paperwidth=140mm,paperheight=105mm}
+
+\author[redshiftzero]{redshiftzero\\ \texttt{jen@redshiftzero.com}}
+\institute[SSH:C]{Southside Hackerspace: Chicago} 
+\title[Cryptoparty]{Cryptoparty}
+
+\date[October 2014]{October 4, 2014}
+
+\begin{document}
+
+% The title page
+\begin{frame}[plain]
+   \titlepage
+\end{frame}
+
+% Begin this presentation
+
+\section{Bookkeeping}
+\subsection{What we do}
+
+\begin{frame}{What are we going to do today?}
+\setbeamercovered{transparent}
+
+\begin{itemize}
+  \item Introductions
+  \item Context 
+  \item Basic cryptography/security concepts
+  \item Setting up tools: PGP for email encryption
+  \item Open time: Q and A, lightning talks, keysigning 
+  \item Already use PGP? Please help teach!
+\end{itemize}
+
+\end{frame}
+
+\section{Motivation}
+\subsection{}
+
+\begin{frame}{Why should we care about privacy?}
+
+\begin{itemize}
+   \item<1->{Some people have something to hide, but not something the government should have the power to know: e.g. affairs, being in the closet, medical information.}
+   \item<2->{You may not have anything to hide, but the government may think you do: e.g. bloated terrorist watch lists that are hard to remove oneself from.}
+   \item<3->{Are you sure you have nothing to hide? There are lots of laws.}
+   \item<4->{People hide many things even though they're not wrong. e.g. nudity}
+   \item<5->{You may not care about hiding it, but you may still be discriminated against because of it. e.g. a company decides that statistically a behavior might suggest you are a poor risk}
+   \item<6->{Privacy is important for dissidents and democracy. It helps maintain the balance of power between individuals and the state.}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Lessons from Snowden}
+\subsection{}
+
+\begin{itemize}
+   \item<1->{The NSA is grabbing up lots of data. Their motivation is to collect every communication that exists, everywhere. }
+   \item<2->{``Properly implemented strong cryptosystems are one of the few things we can rely on"}
+   \item<3->{But endpoint security is an issue.}
+   \item<4->{If the government and corporations don't care about protecting our privacy, we can do it for ourselves.}  
+\end{itemize}
+\end{frame}
+
+\section{Basic security}
+\subsection{}
+
+\begin{frame}{Security Mindset}
+
+There's no such thing as absolute security. Consider your home. 
+
+\bigskip
+
+You're balancing risk and security. You want to exert just more effort than your adversary is willing to commit.
+
+\bigskip
+
+Consider your threat model:
+\begin{itemize}
+\item \textbf{What do you want to keep private?} e.g. your .porn directory, your stolen government documents, the fact that you have cancer, your sexuality
+\item \textbf{Who wants to know?} e.g. Your employer? Nosy kids in coffee shops? Criminals? Police? FBI? NSA?
+\item \textbf{What can they do to find out?} e.g. Dragnet surveillance vs.
+targeted surveillance, subpoena third parties for your data, hack into
+your computers
+\item \textbf{What happens if they succeed?} e.g. embarassment to death, imprisonment
+\end{itemize}
+
+\bigskip
+
+Then you make a security plan.
+\bigskip
+
+\end{frame}
+
+\begin{frame}{How can we communicate securely in the presence of third parties? Cryptography!}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.40]{cryptoparty_figures/Plaintext.pdf}
+\end{figure}
+
+\end{frame}
+\begin{frame}{How can we communicate securely in the presence of third parties? Cryptography!}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.40]{cryptoparty_figures/Ciphertext.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{General Computer Security Advice}
+
+\begin{itemize}
+   \item<1-> Keep your system (both your OS and applications) up to date with security updates.
+   \item<2-> Don't run code from people or organizations you don't trust: Email attachments!
+   \item<3-> Free and open source software is better for security: Linux!
+   \item<4-> Don't reuse passwords if possible, use long passwords, and use two-factor authentication if available. Use a password manager if that helps (e.g. Keepass).
+   \item<5-> Use HTTPS as much as possible: Install \textbf{HTTPS Everywhere}, a browser extension.
+\end{itemize}
+\end{frame}
+
+\end{document}
