@@ -1,8 +1,20 @@
-\documentclass[8pt]{article}
-\usepackage{url}
-\title{Cryptotools}
-\usepackage[hmargin=3cm,vmargin=3.5cm]{geometry}
+\documentclass[11pt]{memoir}
+\usepackage{memhfixc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+
+\renewcommand*\rmdefault{ppl}
+\usepackage[margin=0.5in]{geometry}
+%\documentclass[8pt]{article}
+%\usepackage{url}
+%\title{Cryptotools}
+%\usepackage[hmargin=3cm,vmargin=3.5cm]{geometry}
 \date{}
+
+\title{Digital Security Tools}
+\author{Cryptoparty Chicago \\ 
+\texttt{@cryptopartychi}}
 
 \begin{document}
 \maketitle
@@ -12,7 +24,7 @@
 \begin{itemize}
    \item \textbf{GnuPG}: A free implementation of OpenPGP that enables you to encrypt/sign messages
       \begin{itemize}
-         \item Windows: \texttt{https://gpg4win.org}
+         \item Windows: \texttt{http://gpg4win.org}
          \item OS X: \texttt{https://gpgtools.org}
          \item Linux: \texttt{https://www.gnupg.org}
       \end{itemize}
@@ -32,6 +44,10 @@
        \begin{itemize}
           \item \texttt{https://www.torproject.org}
        \end{itemize} 
+    \item \textbf{Privacy Badger}: Browser extension that prevents advertisers and third-party trackers from tracking your web browsing.
+    \begin{itemize}
+    \item \texttt{https://www.eff.org/privacybadger}
+    \end{itemize}
 \end{itemize}
 
 \section*{Instant Messaging}
@@ -42,9 +58,9 @@
          \item OS X: \texttt{https://adium.im}
          \item Linux: \texttt{https://www.pidgin.im}
        \end{itemize}
-   \item \textbf{TextSecure}: User-friendly encrypted messaging for Android
+   \item \textbf{TextSecure and Signal}: User-friendly encrypted messaging for Android and iOS
        \begin{itemize}
-         \item \texttt{https://github.com/WhisperSystems/TextSecure}
+         \item \texttt{https://whispersystems.org/}
        \end{itemize}
 \end{itemize}
 
@@ -52,11 +68,11 @@
 \begin{itemize}
    \item \textbf{RedPhone}: User-friendly encrypted phone calls for Android
       \begin{itemize}
-         \item \texttt{https://github.com/WhisperSystems/RedPhone}
+         \item \texttt{https://whispersystems.org/}
       \end{itemize}
    \item \textbf{Signal}: User-friendly encrypted phone calls for iOS
       \begin{itemize}
-         \item \texttt{https://github.com/WhisperSystems/Signal-iOS}
+         \item \texttt{https://whispersystems.org/}
       \end{itemize}
 \end{itemize}
 
@@ -70,9 +86,9 @@
 
 \section*{Useful Guides}
 \begin{itemize}
-   \item \path{https://securityinabox.org/en/}: Website with simple guides and how-tos on topics like ``How to use smartphones as securely as possible''
-   \item \path{https://source.opennews.org/en-US/learning/security-journalists-part-one-basics/}: Basic computer security guide
-   \item \path{https://source.opennews.org/en-US/learning/security-journalists-part-two-thread-modeling/}: Threat Modeling
+   \item \texttt{https://securityinabox.org/en/} : Website with simple guides and how-tos on topics like ``How to use smartphones as securely as possible''
+   \item \texttt{https://source.opennews.org/en-US/learning/security-journalists-part-one-basics/} : Basic computer security guide
+   \item \texttt{https://source.opennews.org/en-US/learning/security-journalists-part-two-threat-modeling/} : Threat Modeling
 \end{itemize}
 
 \end{document}
