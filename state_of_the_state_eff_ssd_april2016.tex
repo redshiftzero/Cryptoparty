@@ -1,0 +1,297 @@
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%        LOADING DOCUMENT
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\documentclass[newPxFont]{beamer}
+\usetheme{sthlm}
+%\usecolortheme{sthlmv42}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        LOADING PACKAGES
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\usepackage[utf8]{inputenc}
+
+\usepackage{chronology}
+
+\renewcommand{\event}[3][e]{%
+  \pgfmathsetlength\xstop{(#2-\theyearstart)*\unit}%
+  \ifx #1e%
+    \draw[fill=black,draw=none,opacity=0.5]%
+      (\xstop, 0) circle (.2\unit)%
+      node[opacity=1,rotate=45,right=.2\unit] {#3};%
+  \else%
+    \pgfmathsetlength\xstart{(#1-\theyearstart)*\unit}%
+    \draw[fill=black,draw=none,opacity=0.5,rounded corners=.1\unit]%
+      (\xstart,-.1\unit) rectangle%
+      node[opacity=1,rotate=45,right=.2\unit] {#3} (\xstop,.1\unit);%
+  \fi}%
+
+\pgfplotsset{compat=1.10}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        BEAMER OPTIONS
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%\setbeameroption{show notes}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	PRESENTATION INFORMATION
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\title{State of the State}
+\subtitle{Government Surveillance}
+\author{Jennifer Helsby \texttt{@redshiftzero}\\
+        Lucy Parsons Labs\\
+        EFF Surveillance Self Defense 101: Chicago}
+
+\hypersetup{
+pdfauthor = {Jennifer Helsby: jen@redshiftzero.com},
+pdfsubject = {},
+pdfkeywords = {},
+pdfmoddate= {D:\pdfdate},
+pdfcreator = {}
+}
+
+\begin{document}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	TITLE PAGE
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\maketitle
+
+%\begin{frame}[plain]
+%	\titlepage
+%\end{frame}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	TABLE OF CONTENTS: OVERVIEW
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\section*{Introduction}
+
+\section*{Overview}
+\begin{frame}{Overview}
+% For longer presentations use hideallsubsections option
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	SECTION: BACKGROUND
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\section{History}
+
+\begin{frame}{Surveillance in the US}
+Long history of misuse of surveillance powers:
+\begin{itemize}
+\item<1-> COINTELPRO: Monitoring and disruption of civil rights and political groups, including Martin Luther King Jr, the Black Panther Party, womens rights groups, anti-war groups
+\item<2-> Watergate scandal: Use of surveillance versus political opponents 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Surveillance in Chicago}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Long history of abuse and surveillance by CPD:
+\item e.g. Red Squads: police intelligence units that infiltrated political and dissident groups
+\end{itemize}
+\end{column}
+\begin{column}{0.55\textwidth}
+\begin{figure}
+\centering
+\includegraphics[width=0.80\linewidth]{redsquad.jpg}
+\end{figure}
+\end{frame}
+\end{column}
+\end{columns}
+\end{frame}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	SECTION: DATA COLLECTION LANDSCAPE
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\section{Data Collection Landscape}
+
+\begin{frame}{Data Collection: Intelligence Agencies}
+\begin{figure} 
+\centering 
+\includegraphics[width=0.80\linewidth]{prism.jpg} 
+\end{figure}
+\end{frame}
+
+\begin{frame}{Data Collection Landscape}
+        \begin{itemize}
+            \item<1-> Intelligence and federal law enforcement agencies: NSA and FBI
+            \item<2-> Local and state police
+            \item<3-> Facilitated by corporations
+            \item<4-> With increasingly liberal information sharing
+            \item<5-> Targets of surveillance: Immigrants, migrants, people of color, Muslim communities, activists, anarchists, ...
+        \end{itemize}
+\end{frame}
+
+\begin{frame}{Digital Security}
+\begin{quote}
+People have been defending their
+own privacy for centuries with
+whispers, darkness, envelopes,
+closed doors, secret handshakes,
+and couriers. -Eric Hughes
+\end{quote}
+\begin{itemize}
+\item<1-> Our computers and smartphones are increasingly our eyes and ears.
+\item<2-> Third parties mediate most human interactions: Facebook, Snapchat, texting, phone calls, email etc.
+\end{itemize}
+\end{frame}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	SECTION: POLICE SURVEILLANCE
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\section{Police Surveillance in Chicago}
+
+\begin{frame}{Operation Virtual Shield}
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\begin{itemize}
+\item<1-> Police Observation Devices (POD) program: Cameras up on light poles, 1st generation are the "Blue light cameras"
+\item<2-> 26,000+ cameras in Chicago including CTA, CPS, O'Hare and Midway airports 
+\item<3-> Public-private partnership: Private owners can register cameras
+\end{itemize}
+\end{column}
+\begin{column}{0.45\textwidth}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\linewidth]{blue.jpg}
+\end{figure}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Police Body Worn Cameras}
+From Project Upturn's excellent Policy Scorecard on Police Body Cameras\footnote{\texttt{\tiny https://www.bwcscorecard.org/#chicago-police-department}}, CPD's camera policy\footnote{\texttt{\tiny http://directives.chicagopolice.org/directives/data/a7a57b38-151f3872-56415-1f38-89ce6c22d026d090.html}}:
+\begin{itemize}
+\item<1-> Stores data for minimum of 90 days (no maximum) on Evidence.com
+\item<2-> No limitations in place for biometrics (e.g. facial recognition) on data
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Biometrics}
+\begin{itemize}
+\item<1-> Biometrics: Use of physical markers for identification purposes
+\item<2-> In Chicago, fingerprint and facial recognition (against database of mugshots)
+\item<3-> Take still frames from video camera footage, run facial recognition on it
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cell Site Simulators / Stingrays}
+\begin{figure}
+\centering
+\includegraphics[width=0.35\linewidth]{stingray.jpg}
+\end{figure}
+\begin{itemize}
+\item<1-> Devices that simulate a cell tower to indiscriminantly intercept communications of nearby cellphones, deny service to the phone
+\item<2-> Poorly regulated: Chicago police do not appear to get warrants before their use. \textbf{Citizen Privacy Protection Act} pending at state level to remedy the situation.
+\item<3-> Suspected use at protests\footnote{\texttt{\tiny http://chicago.cbslocal.com/2014/12/06/activists-say-chicago-police-used-stingray-eavesdropping-technology-during-protests/}}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Automatic License Plate Readers (ALPRs)}
+\begin{itemize}
+\item<1-> Log positions of vehicles based on license plates
+\item<2-> Stationary ALPRs and mobile ALPRs on police vehicles are both in use in Chicago
+\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=0.55\linewidth]{alpr_cpd.png}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Shotspotter}
+\begin{itemize}
+\item<1-> Audio surveillance system for cities
+\item<2-> Pole-mounted microphones distributed over an area for the detection and localization of gunshots
+\item<3-> In Chicago, deployed in Englewood, Harrison, Chicago Lawn and Grand Crossing
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Social Media Monitoring}
+Manual and automated monitoring of speech on social media (Twitter, Instagram, Facebook, etc.)
+\begin{figure}
+\centering
+\includegraphics[width=0.85\linewidth]{geofeedia.jpg}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Video Surveillance at Protests}
+        \begin{figure}
+                \centering
+                \includegraphics[width=0.65\linewidth]{copsfilming.png}
+        \end{figure}
+\end{frame}
+
+\begin{frame}{Surveillance of First Amendment Protected Speech}
+        \begin{figure}
+                \centering
+                \includegraphics[width=0.85\linewidth]{firstamendment.png}
+        \end{figure}
+Groups monitored in this worksheet included: ChiCopWatch, Occupy Chicago, We Charge Genocide, Anonymous, self-described Activists/Anarchists (Document via Freddy Martinez)
+\end{frame}
+
+\begin{frame}{Fear}
+\begin{itemize}
+\item<1-> Stated goal of surveillance is to ``enhance the paranoia endemic in these circles and will further serve to get the point across there is an FBI agent behind every mailbox." (from documents stolen from FBI office in 1971)
+\item<2-> The point of learning about these technologies and practices is:
+\begin{itemize} \item To be able to do your work while minimizing risk 
+ \item To start the discussion about which of these practices we are okay with and which of them we are not
+\end{itemize} 
+\item<3-> Where to start: Threat modeling 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Resources}
+  \begin{thebibliography}{10}
+	\beamertemplatearticlebibitems
+        \bibitem{Bedoya2016}
+        Alvaro Bedoya, \textit{What the FBI's surveillance of Martin Luther King tells us about the modern spy era"}, Slate 2016 
+        
+\\
+	\beamertemplatearticlebibitems
+	\bibitem{Cyril2016}
+	Malkia Cyril, Center for Media Justice, \textit{Black Americans and encrytion: the stakes are higher than Apple v FBI}, The Guardian 2016
+\\
+	\beamertemplatearticlebibitems
+	\bibitem{EFF}
+	EFF, \textit{Street Level Surveillance}
+	\newblock \texttt{https://www.eff.org/sls}
+
+	\beamertemplatearticlebibitems
+	\bibitem{Helsby2016}
+	Jennifer Helsby, Lucy Parsons Labs, \textit{Police Surveillance in Chicago}
+	\newblock \texttt{https://redshiftzero.github.io/policesurveillance/}
+
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
